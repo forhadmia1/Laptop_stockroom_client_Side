@@ -35,7 +35,7 @@ const Header = () => {
                         </path>
                     </svg>
                 </button>
-                <a class="text-xl text-black" href="/">Laptop Stockroom</a>
+                <a class="text-xl text-gray-500 font-semibold" href="/">Laptop Stockroom</a>
                 <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
                     {/* nav links start */}
                     <ul class="navbar-nav flex flex-col pl-2 list-style-none ml-auto">
