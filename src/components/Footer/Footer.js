@@ -14,22 +14,22 @@ const Footer = () => {
                         <span className='text-2xl font-semibold'>Laptop Stockroom</span>
                     </div>
                     <div className="flex justify-center">
-                        <a href="#!" className="mr-6 text-gray-600">
+                        <a href="#!" className="mr-6 text-gray-600 text-xl">
                             <FaFacebookF />
                         </a>
-                        <a href="#!" className="mr-6 text-gray-600">
+                        <a href="#!" className="mr-6 text-gray-600 text-xl">
                             <AiOutlineTwitter />
                         </a>
-                        <a href="#!" className="mr-6 text-gray-600">
+                        <a href="#!" className="mr-6 text-gray-600 text-xl">
                             <AiOutlineGoogle />
                         </a>
-                        <a href="#!" className="mr-6 text-gray-600">
+                        <a href="#!" className="mr-6 text-gray-600 text-xl">
                             <ImLinkedin2 />
                         </a>
                     </div>
                 </div>
             </div>
-            <div className="mx-6 py-10 text-center md:text-left">
+            <div className="mx-8 py-10 text-center md:text-left">
                 <div className="container px-6 flex justify-between flex-col md:flex-row gap-8">
                     <div className="">
                         <h6 className="
@@ -55,15 +55,15 @@ const Footer = () => {
                         </h6>
                         <div>
                             <p className="flex items-center justify-start mb-4">
-                                <FaHome className='mr-4' />
+                                <FaHome className='mr-4 text-xl' />
                                 New York, NY 10012, US
                             </p>
                             <p className="flex items-center justify-start mb-4">
-                                <GrMail className='mr-4' />
+                                <GrMail className='mr-4 text-xl' />
                                 info@example.com
                             </p>
                             <p className="flex items-center justify-start mb-4">
-                                <BsFillTelephoneFill className='mr-4' />
+                                <BsFillTelephoneFill className='mr-4 text-xl' />
                                 + 01 234 567 88
                             </p>
                         </div>

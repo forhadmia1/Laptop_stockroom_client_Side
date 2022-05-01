@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaBars } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -31,18 +32,18 @@ const Header = () => {
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <FaBars className='text-2xl' />
                 </button>
-                <a className="text-xl text-gray-500 font-semibold" href="/">Laptop Stockroom</a>
+                <Link className="text-xl text-gray-500 font-semibold" to="/">Laptop Stockroom</Link>
                 <div className="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
                     {/* nav links start */}
                     <ul className="navbar-nav flex flex-col pl-2 list-style-none ml-auto">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/">Home</a>
+                            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="nav-item pr-2">
-                            <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="/">Blogs</a>
+                            <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/blogs">Blogs</Link>
                         </li>
                         <li className="nav-item pr-2">
-                            <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="/">Login</a>
+                            <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/login">Login</Link>
                         </li>
                     </ul>
                     {/* Left links end*/}
