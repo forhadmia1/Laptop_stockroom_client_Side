@@ -16,6 +16,7 @@ const LaptopDetails = () => {
 
     const { name, image, price, description, quantity, suplierName } = laptop;
 
+    //handle delivered btn
     const handleDelivered = async () => {
         const { quantity, _id, ...rest } = laptop;
         const newQuantity = parseInt(quantity) - 1;
@@ -27,7 +28,7 @@ const LaptopDetails = () => {
         }
 
     }
-
+    //handle restock btn
     const stockRef = useRef();
     const handleRestock = async () => {
         const newQuantity = stockRef.current.value;

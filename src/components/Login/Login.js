@@ -1,15 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 
 const Login = () => {
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        signInWithEmailAndPassword(email, password)
+    }
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+
     return (
         <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm mt-10 mx-auto">
-            <form>
+            <form onSubmit={handleLogin}>
                 <h2 className='text-center text-sky-500 text-4xl font-semibold mb-6'>Login</h2>
                 <div className="form-group mb-6">
-                    <label for="exampleInputEmail2" className="form-label inline-block mb-2 text-gray-700">Email address</label>
-                    <input type="email" className="form-control
+                    <label htmlFor="exampleInputEmail2" className="form-label inline-block mb-2 text-gray-700">Email address</label>
+                    <input type="email"
+                        ref={emailRef}
+                        className="form-control
                         block
                         w-full
                         px-3
@@ -24,11 +53,13 @@ const Login = () => {
                         ease-in-out
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2"
-                        aria-describedby="emailHelp" placeholder="Enter email" />
+                        aria-describedby="emailHelp" placeholder="Enter email" required />
                 </div>
                 <div className="form-group mb-6">
-                    <label for="exampleInputPassword2" className="form-label inline-block mb-2 text-gray-700">Password</label>
-                    <input type="password" className="form-control block
+                    <label htmlFor="exampleInputPassword2" className="form-label inline-block mb-2 text-gray-700">Password</label>
+                    <input type="password"
+                        ref={passwordRef}
+                        className="form-control block
                         w-full
                         px-3
                         py-1.5
@@ -42,7 +73,7 @@ const Login = () => {
                         ease-in-out
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputPassword2"
-                        placeholder="Password" />
+                        placeholder="Password" required />
                 </div>
                 <div className="flex justify-center items-center mb-6">
                     <a href="#!"
