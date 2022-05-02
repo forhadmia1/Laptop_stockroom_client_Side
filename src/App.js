@@ -10,6 +10,8 @@ import Login from './components/Login/Login';
 import ManageInventories from './components/ManageInventories/ManageInventories';
 import Register from './components/Register/Register';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -31,6 +33,9 @@ function App() {
           <Route path='additems' element={<AddItems />} />
         </Route>
       </Routes>
+      <ToastContainer
+        position='top-center'
+      />
     </div>
   );
 }
