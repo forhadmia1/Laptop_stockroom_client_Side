@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BsFillCheckCircleFill } from 'react-icons/bs'
 
@@ -21,6 +21,18 @@ const LaptopDetails = () => {
         const newQuantity = parseInt(quantity) - 1;
         const update = { quantity: newQuantity, ...rest }
 
+        const { data } = await axios.put(`http://localhost:5000/inventory/${id}`, update)
+        if (data.modifiedCount > 0) {
+            setLaptop(update)
+        }
+
+    }
+
+    const stockRef = useRef();
+    const handleRestock = async () => {
+        const newQuantity = stockRef.current.value;
+        const { quantity, _id, ...rest } = laptop;
+        const update = { quantity: newQuantity, ...rest }
         const { data } = await axios.put(`http://localhost:5000/inventory/${id}`, update)
         if (data.modifiedCount > 0) {
             setLaptop(update)
@@ -62,10 +74,42 @@ const LaptopDetails = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <button type="button" onClick={handleDelivered}
-                                    className="inline-block px-7 py-3 bg-gray-800 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">
-                                    Delivered
-                                </button>
+                                <div className='flex justify-between'>
+                                    <button type="button" onClick={handleDelivered}
+                                        className="inline-block px-7 py-1 bg-gray-800 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">
+                                        Delivered
+                                    </button>
+                                    <div className="flex justify-center">
+                                        <div className="xl:w-96 flex">
+                                            <input
+                                                ref={stockRef}
+                                                type="number"
+                                                className="
+                                                        form-control
+                                                        block
+                                                        px-3
+                                                        py-1.5
+                                                        text-base
+                                                        font-normal
+                                                        text-gray-700
+                                                        bg-white bg-clip-padding
+                                                        border border-solid border-gray-300
+                                                        rounded
+                                                        transition
+                                                        ease-in-out
+                                                        m-0
+                                                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                                                        "
+                                                id="exampleNumber0"
+                                                placeholder="Add Quantity"
+                                            />
+                                            <button type="button" onClick={handleRestock}
+                                                className="inline-block px-7 py-3 bg-gray-800 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">
+                                                Restock
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
