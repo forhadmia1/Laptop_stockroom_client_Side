@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 
 const Login = () => {
     return (
@@ -72,6 +73,7 @@ const Login = () => {
                     className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Register</Link>
                 </p>
             </form>
+            <GoogleSignIn />
         </div>
     );
 };

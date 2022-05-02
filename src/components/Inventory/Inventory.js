@@ -13,7 +13,7 @@ const Inventory = () => {
     }, [])
     return (
         <div className="container my-16 px-6 mx-auto">
-            <section className="mb-32 text-gray-800 text-center">
+            <section className="text-gray-800 text-center">
 
                 <h2 className="text-3xl font-bold pb-4 text-center">Inventory</h2>
 
@@ -25,7 +25,9 @@ const Inventory = () => {
                         />)
                     }
                 </div>
-
+                <div className='mt-16'>
+                    <button type="button" class="inline-block px-10 py-3 bg-blue-400 text-white font-semibold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out">Manage Inventories</button>
+                </div>
             </section>
         </div>
     );
