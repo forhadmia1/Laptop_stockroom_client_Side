@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SingleProduct from '../SingleProduct/SingleProduct';
 
 const Inventory = () => {
     const [laptops, setLaptops] = useState([]);
+    const navigate = useNavigate()
     useEffect(() => {
         axios.get('http://localhost:5000/laptops')
             .then(function (response) {
@@ -26,7 +28,7 @@ const Inventory = () => {
                     }
                 </div>
                 <div className='mt-16'>
-                    <button type="button" className="inline-block px-10 py-3 bg-blue-400 text-white font-semibold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out">Manage Inventories</button>
+                    <button onClick={() => navigate('/manageinventories')} type="button" className="inline-block px-10 py-3 bg-blue-400 text-white font-semibold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out">Manage Inventories</button>
                 </div>
             </section>
         </div>
