@@ -56,10 +56,10 @@ const Header = () => {
                                     <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/login">Manage Items</Link>
                                 </li>
                                 <li className="nav-item pr-2">
-                                    <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/login">My Items</Link>
+                                    <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/myitems">My Items</Link>
                                 </li>
                                 <li className="nav-item pr-2">
-                                    <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/login">Add Items</Link>
+                                    <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/additem">Add Items</Link>
                                 </li>
                                 <li className="nav-item pr-2">
                                     <button onClick={() => signOut(auth)} type="button" className="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out">SignOut</button>

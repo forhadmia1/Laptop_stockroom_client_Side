@@ -34,13 +34,16 @@ const AddItems = () => {
     }
 
     return (
-        <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto">
+        <div className="block p-6 rounded-lg shadow-lg w-8/12 bg-white mx-auto">
             <h1 className='text-center text-2xl font-semibold mb-8'>Add product details here</h1>
             <form onSubmit={handleAddItem}>
-                <div class="form-group mb-6">
+                <div className="form-group mb-6">
+                    <label htmlFor="pdName" className='text-lg font-semibold
+                    text-gray-700'>Name:</label>
                     <input type="text"
                         ref={nameRef}
-                        class="form-control block
+                        className="form-control block
+                        mt-1
                         w-full
                         px-3
                         py-1.5
@@ -53,16 +56,18 @@ const AddItems = () => {
                         transition
                         ease-in-out
                         m-0
-                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7"
-                        placeholder="Name"
+                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="pdName"
                         required
                     />
                 </div>
-                <div class="form-group mb-6">
+                <div className="form-group mb-6">
+                    <label htmlFor="imageurl" className='text-lg font-semibold
+                    text-gray-700'>Image Url:</label>
                     <input type="text"
                         ref={imageRef}
-                        class="form-control block
+                        className="form-control block
                         w-full
+                        mt-1
                         px-3
                         py-1.5
                         text-base
@@ -74,16 +79,18 @@ const AddItems = () => {
                         transition
                         ease-in-out
                         m-0
-                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7"
-                        placeholder="Image url"
+                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="imageurl"
                         required
                     />
                 </div>
-                <div class="form-group mb-6">
+                <div className="form-group mb-6">
+                    <label htmlFor="SuplierName" className='text-lg font-semibold
+                    text-gray-700'>Suplier Name:</label>
                     <input type="text"
                         ref={suplierNameRef}
-                        class="form-control block
+                        className="form-control block
                         w-full
+                        mt-1
                         px-3
                         py-1.5
                         text-base
@@ -95,15 +102,16 @@ const AddItems = () => {
                         transition
                         ease-in-out
                         m-0
-                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7"
-                        placeholder="Suplier Name"
+                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="SuplierName"
                         required
                     />
                 </div>
-                <div class="form-group mb-6">
+                <div className="form-group mb-6">
+                    <label htmlFor="SuplierName" className='text-lg font-semibold
+                    text-gray-700'>Suplier Name:</label>
                     <input type="number"
                         ref={quantityRef}
-                        class="form-control block
+                        className="form-control block
                         w-full
                         px-3
                         py-1.5
@@ -121,11 +129,14 @@ const AddItems = () => {
                         required
                     />
                 </div>
-                <div class="form-group mb-6">
+                <div className="form-group mb-6">
+                    <label htmlFor="pdPrice" className='text-lg font-semibold
+                    text-gray-700'>Price:</label>
                     <input type="number"
                         ref={priceRef}
-                        class="form-control block
+                        className="form-control block
                         w-full
+                        mt-1
                         px-3
                         py-1.5
                         text-base
@@ -137,18 +148,20 @@ const AddItems = () => {
                         transition
                         ease-in-out
                         m-0
-                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7"
-                        placeholder="Price"
+                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="pdPrice"
                         required
                     />
                 </div>
 
-                <div class="form-group mb-6">
+                <div className="form-group mb-6">
+                    <label htmlFor="Description" className='text-lg font-semibold
+                    text-gray-700'>Description:</label>
                     <textarea
                         ref={descriptionRef}
-                        class="form-control
+                        className="form-control
                         block
                         w-full
+                        mt-1
                         px-3
                         py-1.5
                         text-base
@@ -162,17 +175,17 @@ const AddItems = () => {
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
                         "
-                        id="exampleFormControlTextarea13"
+                        id="Description"
                         rows="3"
-                        placeholder="Description"
                         required
                     ></textarea>
                 </div>
                 <button type="submit"
-                    class="
-                    w-full
-                    px-6
-                    py-2.5
+                    className="
+                    mx-auto
+                    block
+                    px-8
+                    py-3
                     bg-blue-600
                     text-white
                     font-medium
