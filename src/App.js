@@ -29,7 +29,11 @@ function App() {
             <LaptopDetails />
           </RequireAuth>
         } />
-        <Route path='/manageinventories' element={<ManageInventories />} >
+        <Route path='/manageinventories' element={
+          <RequireAuth>
+            <ManageInventories />
+          </RequireAuth>
+        } >
           <Route index element={<AllItems />} />
           <Route path='allitems' element={<AllItems />} />
           <Route path='additems' element={<AddItems />} />

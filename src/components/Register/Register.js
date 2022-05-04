@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 
 const Register = () => {
@@ -11,6 +13,8 @@ const Register = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    const [token] = useToken(user)
     const navigate = useNavigate()
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const [errormsg, setErrormsg] = useState('')
@@ -30,9 +34,10 @@ const Register = () => {
             return setErrormsg('Password didnt match!!')
         }
         await createUserWithEmailAndPassword(email, password)
+        toast.success('Verification Email Sent!!')
         updateProfile({ displayName: name })
     }
-    if (user) {
+    if (token) {
         navigate('/')
     }
 

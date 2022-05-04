@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import React, { useEffect, useRef, useState } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 
 const Login = () => {
@@ -12,21 +14,49 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [token] = useToken(user)
+
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
+
+    const [errorMsg, setErrorMsg] = useState('');
+
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
     const emailRef = useRef()
     const passwordRef = useRef()
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password)
     }
 
-    if (user) {
+
+    if (token) {
         navigate(from, { replace: true });
+    }
+
+    useEffect(() => {
+        if (error) {
+            if (error.code === 'auth/wrong-password') {
+                setErrorMsg("Incorrect password")
+            } else if (error.code === 'auth/user-not-found') {
+                setErrorMsg("User not found,Check email please!!")
+            }
+        }
+    }, [error])
+
+    const handleResetPassword = async () => {
+        const email = emailRef.current.value;
+        if (!email) {
+            toast.error('Enter an email please!')
+        } else {
+            await sendPasswordResetEmail(email)
+            toast.success('Password reset email sent!')
+        }
+
     }
 
 
@@ -76,10 +106,9 @@ const Login = () => {
                         placeholder="Password" required />
                 </div>
                 <div className="flex justify-center items-center mb-6">
-                    <a href="#!"
-                        className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Forgot
-                        password?</a>
+                    <button onClick={handleResetPassword} type="button" className="inline-block px-6 py-2.5 bg-transparent text-blue-600 font-medium text-md leading-tight uppercase rounded hover:text-blue-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out">Forget Password?</button>
                 </div>
+                <p className='text-center text-red-500 mb-2'>{errorMsg}</p>
                 <button type="submit" className="
                     w-full
                     px-6

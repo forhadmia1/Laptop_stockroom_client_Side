@@ -9,7 +9,6 @@ const Inventory = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/laptops')
             .then(function (response) {
-                // handle success
                 setLaptops(response.data);
             })
     }, [])

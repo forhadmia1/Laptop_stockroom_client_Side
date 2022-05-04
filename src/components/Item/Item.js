@@ -5,16 +5,20 @@ import { RiDeleteBin5Line } from 'react-icons/ri'
 const Item = ({ laptop, count, data }) => {
 
     const { name, image, quantity, _id } = laptop;
-    const [allItems, setAllItems] = data;
+    const [items, setItems] = data;
 
     const handleDelete = async (id) => {
-        axios.delete(`http://localhost:5000/inventory/${id}`)
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-        const rest = allItems.filter(laptop => laptop._id !== id)
-        setAllItems(rest)
+        const agree = window.confirm('Are You Sure?');
+        if (agree) {
+
+            axios.delete(`http://localhost:5000/inventory/${id}`)
+                .then(function (response) {
+                    // handle success
+                    console.log(response);
+                })
+            const rest = items.filter(laptop => laptop._id !== id)
+            setItems(rest)
+        }
     }
 
     return (

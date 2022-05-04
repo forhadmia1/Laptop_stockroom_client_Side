@@ -108,7 +108,7 @@ const AddItems = () => {
                 </div>
                 <div className="form-group mb-6">
                     <label htmlFor="SuplierName" className='text-lg font-semibold
-                    text-gray-700'>Suplier Name:</label>
+                    text-gray-700'>Quantity:</label>
                     <input type="number"
                         ref={quantityRef}
                         className="form-control block
@@ -125,7 +125,6 @@ const AddItems = () => {
                         ease-in-out
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7"
-                        placeholder="Quantity"
                         required
                     />
                 </div>
