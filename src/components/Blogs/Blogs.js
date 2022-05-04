@@ -2,8 +2,49 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div>
-            this is blogs
+        <div className='container mx-auto mt-4'>
+            <div className='p-3'>
+                <h1 className='text-xl font-semibold'>1. Difference between javascript and node js?</h1>
+                <div className='flex flex-col justify-around md:flex-row mt-4'>
+                    <ol className='list-disc p-4'>
+                        <h4 className='text-center font-semibold'>Javascript</h4>
+                        <li>Javascript is a programming language.</li>
+                        <li>Javascript run in browser only.</li>
+                        <li>It usually used for client side.</li>
+                        <li>Javascript is used in frontend devlopment.</li>
+                        <li>Javascript framework is react js.</li>
+                    </ol>
+                    <ol className='list-disc p-4'>
+                        <h4 className='text-center font-semibold'>Node js</h4>
+                        <li>Node js is a javascript runtime.</li>
+                        <li>Through node js we can run javascript code outside browser.</li>
+                        <li>It usually used for server side.</li>
+                        <li>Node js is used in backend devlopment.</li>
+                        <li>Node js framework is express js.</li>
+                    </ol>
+                </div>
+            </div>
+            <div className='p-3'>
+                <h1 className='text-xl font-semibold'>3. Difference between SQL and NoSQL database?</h1>
+                <div className='flex flex-col justify-around md:flex-row mt-4'>
+                    <ol className='list-disc p-4'>
+                        <h4 className='text-center font-semibold'>SQL</h4>
+                        <li>SQL is ralational database management system.</li>
+                        <li>SQL database have fixed or static or predefined schema.</li>
+                        <li>SQL is not suited for fierarchical data storage.</li>
+                        <li>SqL is best for complex queries.</li>
+                        <li>Example: MySQL</li>
+                    </ol>
+                    <ol className='list-disc p-4'>
+                        <h4 className='text-center font-semibold'>NoSQL</h4>
+                        <li>NoSQL is non relational database system.</li>
+                        <li>It has dynamic schema</li>
+                        <li>The database is best for heirarchical data storage.</li>
+                        <li>It is not good for complex queries.</li>
+                        <li>Example: MongoDb</li>
+                    </ol>
+                </div>
+            </div>
         </div>
     );
 };
