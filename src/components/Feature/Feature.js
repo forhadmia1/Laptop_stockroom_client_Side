@@ -4,8 +4,8 @@ import { MdOutlineLocalShipping } from 'react-icons/md'
 
 const Feature = () => {
     return (
-        <div className='container mx-auto my-20'>
-            <div className='flex justify-around gap-20 flex-col md:flex-row'>
+        <div className='my-20 bg-slate-200 py-24'>
+            <div className='container mx-auto flex justify-around gap-20 flex-col md:flex-row'>
                 <div className='flex flex-col items-center p-4'>
                     <BsGlobe className='text-2xl' />
                     <h2 className='text-xl font-semibold text-slate-700 mt-4'>WORLDWIDE DELIVERY</h2>

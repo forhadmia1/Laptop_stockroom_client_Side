@@ -5,9 +5,9 @@ const SingleProduct = ({ laptop }) => {
     const { name, image, price, description, quantity, _id, suplierName } = laptop;
     return (
         <div className="mb-6 lg:mb-0">
-            <div className="relative block bg-white rounded-lg shadow-xl">
+            <div className="relative block bg-white rounded-lg shadow-xl border">
                 <div className='p-4'>
-                    <img src={image} alt="" className="w-full" />
+                    <img className='hover:scale-110 w-full duration-500' src={image} alt="" />
                 </div>
                 <div className="p-4 text-left">
                     <h5 className="font-bold text-lg mb-3">{name}</h5>
