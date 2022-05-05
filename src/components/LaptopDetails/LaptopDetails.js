@@ -6,6 +6,7 @@ import { BsFillCheckCircleFill } from 'react-icons/bs'
 const LaptopDetails = () => {
     const { id } = useParams();
     const [laptop, setLaptop] = useState({});
+
     useEffect(() => {
         axios.get(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`)
             .then(function (response) {
@@ -30,15 +31,15 @@ const LaptopDetails = () => {
     }
     //handle restock btn
     const stockRef = useRef();
-    const handleRestock = async () => {
+    const handleRestock = async (e) => {
         const newQuantity = stockRef.current.value;
         const { quantity, _id, ...rest } = laptop;
-        const update = { quantity: newQuantity, ...rest }
+        const restock = parseInt(quantity) + parseInt(newQuantity);
+        const update = { quantity: restock, ...rest }
         const { data } = await axios.put(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`, update)
         if (data.modifiedCount > 0) {
             setLaptop(update)
         }
-
     }
 
     return (

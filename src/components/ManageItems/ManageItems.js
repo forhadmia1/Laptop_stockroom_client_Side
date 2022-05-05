@@ -2,16 +2,17 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import useProductCount from '../../hooks/useProductCount';
 import SingleProduct from '../SingleProduct/SingleProduct';
+import Spinner from '../Spinner/Spinner';
 
 const ManageItems = () => {
     const [page, setPage] = useState(0);
     const [productCount] = useProductCount();
     const [products, setProducts] = useState([])
     const [active, setActive] = useState(0)
-    const [limit, setLimit] = useState(12)
+    const [limit, setLimit] = useState(9)
 
     useEffect(() => {
-        setPage(Math.ceil(productCount / 12))
+        setPage(Math.ceil(productCount / limit))
         const url = `https://protected-atoll-86406.herokuapp.com/allproducts?skip=${active * limit}&limit=${limit}`
 
         const getData = async () => {
@@ -28,8 +29,8 @@ const ManageItems = () => {
     }
 
 
-    return (
-        <div className='container mx-auto'>
+    return (products.length === 0 ? <Spinner /> : <>
+        <div div className='container mx-auto' >
             <div className='grid grid-cols-3 gap-16 mt-16'>
                 {
                     products.map(laptop => <SingleProduct
@@ -48,7 +49,7 @@ const ManageItems = () => {
                                 onClick={() => setActive(number)}
                                 key={number}
                                 className={`border-2 p-1 border-blue-500 font-semibold ${active === number ? 'bg-red-500' : ''}`}
-                            > {number}</button>
+                            > {number + 1}</button>
                         </>)
                     }
                 </div>
@@ -61,6 +62,7 @@ const ManageItems = () => {
                 </div>
             </div>
         </div >
+    </>
     );
 };
 
