@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import NotFound from './components/NOtFound/NotFound';
 import MyItems from './components/MyItems/MyItems';
+import ManageItems from './components/ManageItems/ManageItems';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path='allitems' element={<AllItems />} />
           <Route path='additems' element={<AddItems />} />
         </Route>
+        <Route path='/manageitem' element={<ManageItems />} />
         <Route path='/myitems' element={<MyItems />} />
         <Route path='/additem' element={<AddItems />} />
         <Route path='*' element={<NotFound />} />
