@@ -13,10 +13,10 @@ const Inventory = () => {
             })
     }, [])
     return (
-        <div className="container my-16 px-6 mx-auto">
+        <div id='inventory' className="container my-16 px-6 mx-auto">
             <section className="text-gray-800 text-center">
 
-                <h2 className="text-3xl font-bold pb-4 text-center">Inventory</h2>
+                <h2 className="text-4xl font-bold pb-4 text-center text-slate-600">Inventory</h2>
 
                 <div className="grid lg:grid-cols-3 gap-6 xl:gap-x-12">
                     {

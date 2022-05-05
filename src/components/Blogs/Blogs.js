@@ -24,6 +24,14 @@ const Blogs = () => {
                     </ol>
                 </div>
             </div>
+            <div className="p-3">
+                <h1 className="text-xl font-semibold">
+                    2. What is the purposre of jwt and how does it works?
+                </h1>
+                <p>
+                    jwt is json web token. It is used for secure API for transmitting information between two parties client and server. when the client sign creates a JWT for him and stores it and when a client wants to access any resource the JWTis sent with the rest API and in server verify this JWTs signature, when it matches with its payload and header then give the access otherwise deny the request.
+                </p>
+            </div>
             <div className='p-3'>
                 <h1 className='text-xl font-semibold'>3. Difference between SQL and NoSQL database?</h1>
                 <div className='flex flex-col justify-around md:flex-row mt-4'>
