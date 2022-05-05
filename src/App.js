@@ -15,6 +15,7 @@ import { ToastContainer } from 'react-toastify';
 import NotFound from './components/NOtFound/NotFound';
 import MyItems from './components/MyItems/MyItems';
 import ManageItems from './components/ManageItems/ManageItems';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path='/additem' element={<AddItems />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
+      <Footer />
       <ToastContainer
         position='top-center'
       />

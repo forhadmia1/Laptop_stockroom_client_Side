@@ -10,14 +10,17 @@ const ManageItems = () => {
     const [products, setProducts] = useState([])
     const [active, setActive] = useState(0)
     const [limit, setLimit] = useState(9)
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
+        setIsLoading(true)
         setPage(Math.ceil(productCount / limit))
         const url = `https://protected-atoll-86406.herokuapp.com/allproducts?skip=${active * limit}&limit=${limit}`
 
         const getData = async () => {
             const { data } = await axios.get(url)
             setProducts(data)
+            setIsLoading(!true)
         }
         getData()
 
@@ -29,7 +32,7 @@ const ManageItems = () => {
     }
 
 
-    return (products.length === 0 ? <Spinner /> : <>
+    return (isLoading ? <Spinner /> : <>
         <div div className='container mx-auto' >
             <div className='grid grid-cols-3 gap-16 mt-16'>
                 {

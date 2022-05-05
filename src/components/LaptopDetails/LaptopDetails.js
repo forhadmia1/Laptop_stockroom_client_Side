@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BsFillCheckCircleFill } from 'react-icons/bs'
+import { toast } from 'react-toastify';
 
 const LaptopDetails = () => {
     const { id } = useParams();
@@ -20,26 +21,35 @@ const LaptopDetails = () => {
     //handle delivered btn
     const handleDelivered = async () => {
         const { quantity, _id, ...rest } = laptop;
-        const newQuantity = parseInt(quantity) - 1;
-        const update = { quantity: newQuantity, ...rest }
 
-        const { data } = await axios.put(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`, update)
-        if (data.modifiedCount > 0) {
-            setLaptop(update)
+        if (quantity > 0) {
+            const newQuantity = parseInt(quantity) - 1;
+            const update = { quantity: newQuantity, ...rest }
+
+            const { data } = await axios.put(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`, update)
+            if (data.modifiedCount > 0) {
+                setLaptop(update)
+                toast.success('Delivered Complete!')
+            }
         }
-
     }
     //handle restock btn
     const stockRef = useRef();
     const handleRestock = async (e) => {
         const newQuantity = stockRef.current.value;
-        const { quantity, _id, ...rest } = laptop;
-        const restock = parseInt(quantity) + parseInt(newQuantity);
-        const update = { quantity: restock, ...rest }
-        const { data } = await axios.put(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`, update)
-        if (data.modifiedCount > 0) {
-            setLaptop(update)
+
+        if (newQuantity || newQuantity > 0) {
+            const { quantity, _id, ...rest } = laptop;
+            const restock = parseInt(quantity) + parseInt(newQuantity);
+            const update = { quantity: restock, ...rest }
+
+            const { data } = await axios.put(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`, update)
+            if (data.modifiedCount > 0) {
+                setLaptop(update)
+                toast.success('Stock update successfully!')
+            }
         }
+
     }
 
     return (

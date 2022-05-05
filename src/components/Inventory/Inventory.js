@@ -6,12 +6,14 @@ import SingleProduct from '../SingleProduct/SingleProduct';
 const Inventory = () => {
     const [laptops, setLaptops] = useState([]);
     const navigate = useNavigate()
+
     useEffect(() => {
         axios.get('https://protected-atoll-86406.herokuapp.com/allproducts?skip=0&limit=6')
             .then(function (response) {
                 setLaptops(response.data);
             })
     }, [])
+
     return (
         <div id='inventory' className="container my-16 px-6 mx-auto">
             <section className="text-gray-800 text-center">

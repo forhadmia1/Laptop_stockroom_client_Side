@@ -181,9 +181,9 @@ const AddItems = () => {
                 </div>
                 <button type="submit"
                     className="
-                    mx-auto
+                    ml-auto
                     block
-                    px-8
+                    px-12
                     py-3
                     bg-blue-600
                     text-white
