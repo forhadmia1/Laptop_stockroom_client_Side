@@ -7,7 +7,7 @@ const AllItems = () => {
     let count = 0;
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allproducts')
+        axios.get('https://protected-atoll-86406.herokuapp.com/allproducts')
             .then(function (response) {
                 setItems(response.data);
             })

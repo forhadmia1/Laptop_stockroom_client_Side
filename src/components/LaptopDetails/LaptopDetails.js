@@ -7,7 +7,7 @@ const LaptopDetails = () => {
     const { id } = useParams();
     const [laptop, setLaptop] = useState({});
     useEffect(() => {
-        axios.get(`http://localhost:5000/inventory/${id}`)
+        axios.get(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`)
             .then(function (response) {
                 // handle success
                 setLaptop(response.data);
@@ -22,7 +22,7 @@ const LaptopDetails = () => {
         const newQuantity = parseInt(quantity) - 1;
         const update = { quantity: newQuantity, ...rest }
 
-        const { data } = await axios.put(`http://localhost:5000/inventory/${id}`, update)
+        const { data } = await axios.put(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`, update)
         if (data.modifiedCount > 0) {
             setLaptop(update)
         }
@@ -34,7 +34,7 @@ const LaptopDetails = () => {
         const newQuantity = stockRef.current.value;
         const { quantity, _id, ...rest } = laptop;
         const update = { quantity: newQuantity, ...rest }
-        const { data } = await axios.put(`http://localhost:5000/inventory/${id}`, update)
+        const { data } = await axios.put(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`, update)
         if (data.modifiedCount > 0) {
             setLaptop(update)
         }

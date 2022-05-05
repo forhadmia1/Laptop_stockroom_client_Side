@@ -24,7 +24,7 @@ const AddItems = () => {
         const description = descriptionRef.current.value;
         const author = user.email;
         const newItem = { author, name, image, suplierName, price, quantity, description }
-        axios.post('http://localhost:5000/inventory/additem', newItem)
+        axios.post('https://protected-atoll-86406.herokuapp.com/inventory/additem', newItem)
             .then(function (response) {
                 e.target.reset();
                 toast('hello')

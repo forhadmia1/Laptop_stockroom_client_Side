@@ -11,7 +11,7 @@ const MyItems = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:5000/myitems?email=${user.email}`, {
+            axios.get(`https://protected-atoll-86406.herokuapp.com/myitems?email=${user.email}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }

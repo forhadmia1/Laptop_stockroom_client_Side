@@ -11,7 +11,7 @@ const Item = ({ laptop, count, data }) => {
         const agree = window.confirm('Are You Sure?');
         if (agree) {
 
-            axios.delete(`http://localhost:5000/inventory/${id}`)
+            axios.delete(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`)
                 .then(function (response) {
                     // handle success
                     console.log(response);

@@ -6,7 +6,7 @@ const useProductCount = () => {
 
     useEffect(() => {
         const count = async () => {
-            const { data } = await axios.get('http://localhost:5000/count')
+            const { data } = await axios.get('https://protected-atoll-86406.herokuapp.com/count')
             setProductCount(data.count)
         }
         count()
