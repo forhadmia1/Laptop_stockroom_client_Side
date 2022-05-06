@@ -27,8 +27,7 @@ const AddItems = () => {
         axios.post('https://protected-atoll-86406.herokuapp.com/inventory/additem', newItem)
             .then(function (response) {
                 e.target.reset();
-                toast('hello')
-                console.log(response);
+                toast.success('Add item successfully!')
             })
 
     }
@@ -185,7 +184,7 @@ const AddItems = () => {
                     block
                     px-12
                     py-3
-                    bg-blue-600
+                    bg-sky-600
                     text-white
                     font-medium
                     text-xs
@@ -193,9 +192,9 @@ const AddItems = () => {
                     uppercase
                     rounded
                     shadow-md
-                    hover:bg-blue-700 hover:shadow-lg
-                    focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-                    active:bg-blue-800 active:shadow-lg
+                    hover:bg-sky-700 hover:shadow-lg
+                    focus:bg-sky-700 focus:shadow-lg focus:outline-none focus:ring-0
+                    active:bg-sky-800 active:shadow-lg
                     transition
                     duration-150
                     ease-in-out"

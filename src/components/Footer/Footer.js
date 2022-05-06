@@ -7,7 +7,7 @@ import { AiOutlineTwitter, AiOutlineGoogle } from 'react-icons/ai';
 
 const Footer = () => {
     return (
-        <footer className="text-center lg:text-left bg-gray-100 text-gray-600">
+        <footer className="text-center lg:text-left mt-10 bg-gray-100 text-gray-600">
             <div className='border-b border-t border-gray-300 flex justify-center'>
                 <div className="container flex justify-center items-center lg:justify-between py-4 px-6 ">
                     <div className="mr-12 hidden lg:block">

@@ -34,7 +34,7 @@ const ManageItems = () => {
 
     return (isLoading ? <Spinner /> : <>
         <div div className='container mx-auto' >
-            <div className='grid grid-cols-3 gap-16 mt-16'>
+            <div className='grid grid-cols-1 gap-16 mt-16 md:grid-cols-3 p-4'>
                 {
                     products.map(laptop => <SingleProduct
                         key={laptop._id}

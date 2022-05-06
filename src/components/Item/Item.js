@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
-import { RiDeleteBin5Line } from 'react-icons/ri'
+import { toast } from 'react-toastify';
+import PopUpModal from '../PopUpModal/PopUpModal';
 
 const Item = ({ laptop, count, data }) => {
 
@@ -8,17 +9,15 @@ const Item = ({ laptop, count, data }) => {
     const [items, setItems] = data;
 
     const handleDelete = async (id) => {
-        const agree = window.confirm('Are You Sure?');
-        if (agree) {
-
-            axios.delete(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`)
-                .then(function (response) {
-                    // handle success
-                    console.log(response);
-                })
-            const rest = items.filter(laptop => laptop._id !== id)
-            setItems(rest)
-        }
+        axios.delete(`https://protected-atoll-86406.herokuapp.com/inventory/${id}`)
+            .then(function (response) {
+                // handle success
+                if (response.data.deletedCount > 0) {
+                    toast.error('Deleted Item!')
+                };
+            })
+        const rest = items.filter(laptop => laptop._id !== id)
+        setItems(rest)
     }
 
     return (
@@ -34,7 +33,7 @@ const Item = ({ laptop, count, data }) => {
                 {quantity}
             </td>
             <td className="text-sm text-gray-900 font-light px-4 py-4    ">
-                <button onClick={() => handleDelete(_id)}><RiDeleteBin5Line className='text-2xl text-red-600' /></button>
+                <PopUpModal handleDelete={handleDelete} id={_id} />
             </td>
         </tr>
     );
