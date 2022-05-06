@@ -51,7 +51,7 @@ const ManageItems = () => {
                             <button
                                 onClick={() => setActive(number)}
                                 key={number}
-                                className={`border-2 p-1 border-blue-500 font-semibold ${active === number ? 'bg-red-500' : ''}`}
+                                className={`border-2 p-1 border-blue-500 font-semibold ${active === number ? 'bg-blue-500' : ''}`}
                             > {number + 1}</button>
                         </>)
                     }
