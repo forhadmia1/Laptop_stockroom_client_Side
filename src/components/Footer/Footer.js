@@ -4,6 +4,7 @@ import { ImLinkedin2 } from 'react-icons/im';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { GrMail } from 'react-icons/gr';
 import { AiOutlineTwitter, AiOutlineGoogle } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -70,7 +71,7 @@ const Footer = () => {
             </div>
             <div className="text-center p-6 bg-gray-200">
                 <span>&copy; 2022 Copyright:</span>
-                <a className="text-gray-600 font-semibold" href="https://tailwind-elements.com/">Laptop Stockroom</a>
+                <Link className="text-gray-600 font-semibold" to="/home">Laptop Stockroom</Link>
             </div>
         </footer>
     );

@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 import PageTitle from '../PageTitle/PageTitle';
+import Spinner from '../Spinner/Spinner';
 
 const Register = () => {
     const [
@@ -42,7 +43,7 @@ const Register = () => {
         navigate('/')
     }
 
-    return (
+    return (loading ? <Spinner /> :
         <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm mt-10 mx-auto">
             <PageTitle title={'Register-Laptop Stockroom'} />
             <form onSubmit={handleRegister}>

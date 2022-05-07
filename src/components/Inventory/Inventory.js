@@ -1,18 +1,9 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import SingleProduct from '../SingleProduct/SingleProduct';
 
-const Inventory = () => {
-    const [laptops, setLaptops] = useState([]);
+const Inventory = ({ laptops }) => {
     const navigate = useNavigate()
-
-    useEffect(() => {
-        axios.get('https://protected-atoll-86406.herokuapp.com/allproducts?skip=0&limit=6')
-            .then(function (response) {
-                setLaptops(response.data);
-            })
-    }, [])
 
     return (
         <div id='inventory' className="container my-16 px-6 mx-auto">
