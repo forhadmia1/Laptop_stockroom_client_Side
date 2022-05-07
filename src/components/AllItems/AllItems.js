@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
+import PageTitle from '../PageTitle/PageTitle';
 import Spinner from '../Spinner/Spinner';
 
 const AllItems = () => {
@@ -20,6 +21,7 @@ const AllItems = () => {
     return (
         isLoading ? <Spinner /> :
             <table className="w-full text-center mt-6">
+                <PageTitle title={'All items-Laptop Stockroom'} />
                 <thead className="border-b bg-gray-800">
                     <tr>
                         <th scope="col" className="text-sm font-medium text-white px-4 py-4">

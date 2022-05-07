@@ -21,7 +21,7 @@ const SingleProduct = ({ laptop }) => {
                         <small>Suplier: {suplierName}</small>
                     </p>
                     <p className="mb-16 pb-2">
-                        {description.slice(0, 100)} <small className='font-semibold'>...<Link to={`/inventory/${_id}`} >see more</Link></small>
+                        {description.slice(0, 100)} <small className='font-semibold text-sky-500'>...<Link to={`/inventory/${_id}`} >see more</Link></small>
                     </p>
                     <div className='absolute bottom-6 left-1/2 -translate-x-1/2'>
                         <Link to={`/inventory/${_id}`} data-mdb-ripple="true" data-mdb-ripple-color="light"

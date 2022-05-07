@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Item from '../Item/Item';
+import PageTitle from '../PageTitle/PageTitle';
 import Spinner from '../Spinner/Spinner';
 
 const MyItems = () => {
@@ -29,6 +30,7 @@ const MyItems = () => {
     return (
         isLoading ? <Spinner /> :
             <table className="w-full text-center container mx-auto mt-4">
+                <PageTitle title={'Myitems-Laptop Stockroom'} />
                 <thead className="border-b bg-gray-800">
                     <tr>
                         <th scope="col" className="text-sm font-medium text-white px-4 py-4">

@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Register = () => {
     const [
@@ -43,6 +44,7 @@ const Register = () => {
 
     return (
         <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm mt-10 mx-auto">
+            <PageTitle title={'Register-Laptop Stockroom'} />
             <form onSubmit={handleRegister}>
                 <h2 className='text-center text-sky-500 text-4xl font-semibold mb-6'>Register</h2>
                 <div className="form-group mb-6">

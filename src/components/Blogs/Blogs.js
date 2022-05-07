@@ -1,8 +1,10 @@
 import React from 'react';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Blogs = () => {
     return (
         <div className='container mx-auto mt-4'>
+            <PageTitle title={'Blogs-Laptop Stockroom'} />
             <div className='p-3'>
                 <h1 className='text-xl font-semibold'>1. Difference between javascript and node js?</h1>
                 <div className='flex flex-col justify-around md:flex-row mt-4'>
