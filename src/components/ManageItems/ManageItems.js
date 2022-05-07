@@ -33,10 +33,10 @@ const ManageItems = () => {
     }
 
 
-    return (isLoading ? <Spinner /> : <>
+    return (
         <div div className='container mx-auto' >
             <PageTitle title={'Manage items-Laptop Stockroom'} />
-            <div className='grid grid-cols-1 gap-16 mt-16 md:grid-cols-3 p-4'>
+            {isLoading ? <Spinner /> : <div className='grid grid-cols-1 gap-16 mt-16 md:grid-cols-3 p-4'>
                 {
                     products.map(laptop => <SingleProduct
                         key={laptop._id}
@@ -44,7 +44,7 @@ const ManageItems = () => {
                     />
                     )
                 }
-            </div>
+            </div>}
 
             <div className='flex justify-center gap-2 my-12 items-center'>
                 <div className='flex gap-2'>
@@ -67,7 +67,6 @@ const ManageItems = () => {
                 </div>
             </div>
         </div >
-    </>
     );
 };
 
