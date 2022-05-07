@@ -88,7 +88,7 @@ const LaptopDetails = () => {
                                 </div>
                                 <div className='flex justify-between flex-col gap-6 md:flex-row'>
                                     <button type="button" onClick={handleDelivered}
-                                        className="inline-block px-7 py-1 bg-gray-800 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">
+                                        className="inline-block px-7 py-3 bg-gray-800 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">
                                         Delivered
                                     </button>
                                     <div className="flex justify-center">
@@ -99,8 +99,8 @@ const LaptopDetails = () => {
                                                 className="
                                                         form-control
                                                         block
-                                                        px-3
                                                         py-1.5
+                                                        md:px-2
                                                         text-base
                                                         font-normal
                                                         text-gray-700
@@ -116,7 +116,7 @@ const LaptopDetails = () => {
                                                 placeholder="Add Quantity"
                                             />
                                             <button type="button" onClick={handleRestock}
-                                                className="inline-block px-7 py-3 bg-gray-800 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">
+                                                className="inline-block px-4 py-3 bg-gray-800 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">
                                                 Restock
                                             </button>
                                         </div>
