@@ -9,6 +9,8 @@ This is a laptop warehouse website. This is a stock management system. Here you 
 ### Features
 
 - user can add product
+- Integrated pagination.
+- Authenticated by google authentication.
 - User can delete any porduct
 - delivered an item
 - update stock quantity
